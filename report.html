@@ -15765,6 +15765,18 @@ _________________________________________________________________
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Why this architecture works better than earlier attempts?</em></p>
+<p>If we take a deep look on what is happening It seems clear why this attempts provides better results than our from scratch attempts.</p>
+<p>In both cases, we have a set of layers of CNNs each of which is implementing a set of filters that are applied to the image. Filters allow to extract information of features of the image. In our from scratch network, training was done exclusively with dog images thus we would be able to expect that those filters would be specific to the task of extracting features of dogs from the images (and be more performant at it) but to do so we would require to extensively train the model. In this case we are using an already trained CNN. So even if it may not be as good in extracting some "dog only" features, as it was well trained and tuned, we will have a good set of more general features of the image that we can still use for the job of identifying dog breeds. It will be up to the FC layers we add at the end to combine those extracted features to do the job.</p>
+<p>So to sum up: Yes, a from scratch approach could lead to similar or better results in finding out dog breed with less complex architecture of CNN and later FC layers <em>if it is well trained and tunned</em>. Otherwise, using a pre-trained CNN and possibly a more complex FC layers architecture can provide similar accuracy with less training at the cost of some performance.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="(IMPLEMENTATION)-Compile-the-Model">(IMPLEMENTATION) Compile the Model<a class="anchor-link" href="#(IMPLEMENTATION)-Compile-the-Model">&#182;</a></h3>
 </div>
 </div>
